@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>명화랑 UX 기획서 | 발표 슬라이드</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;background:#0a0a14;color:#222}
+
+deck-stage section{
+  width:1920px;height:1080px;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+}
+
+/* SECTION TAG */
+.stag{display:inline-flex;align-items:center;padding:6px 18px;border-radius:22px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
+.stag-bg{background:#1a1a2e;color:#8899cc}
+.stag-r{background:#EBF4FF;color:#4A90D9}
+.stag-u{background:#F0EDFF;color:#7B61FF}
+.stag-s{background:#FFF8ED;color:#F5A623}
+.stag-st{background:#EDFAF3;color:#27AE60}
+
+/* ─── SLIDE 1: COVER ─── */
+#s1{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;justify-content:center;padding:0 140px 60px}
+#s1::before{content:'';position:absolute;top:-200px;right:-200px;width:800px;height:800px;background:radial-gradient(circle,rgba(74,144,217,.12) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+#s1::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(123,97,255,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.cover-badge{display:inline-block;background:rgba(74,144,217,.2);border:1px solid rgba(74,144,217,.5);color:#4A90D9;padding:8px 22px;border-radius:22px;font-size:15px;font-weight:600;margin-bottom:40px;width:fit-content}
+.cover-h1{font-size:88px;font-weight:900;line-height:1.05;margin-bottom:22px;color:#fff}
+.cover-h1 span{color:#4A90D9}
+.cover-sub{font-size:24px;color:rgba(255,255,255,.65);font-weight:300;margin-bottom:72px}
+.cover-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:880px}
+.cstat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px 28px;text-align:center}
+.cstat-num{font-size:50px;font-weight:900;color:#4A90D9;display:block;line-height:1}
+.cstat-lbl{font-size:14px;color:rgba(255,255,255,.6);margin-top:12px;line-height:1.5}
+.cover-date{position:absolute;bottom:72px;right:140px;color:rgba(255,255,255,.35);font-size:14px}
+.cover-right{position:absolute;right:140px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;width:440px}
+.cover-feature{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:18px}
+.cover-feature-icon{font-size:32px;flex-shrink:0}
+.cover-feature-text{font-size:15px;color:rgba(255,255,255,.85);line-height:1.6;font-weight:500}
+
+/* ─── SLIDE 2: TOC ─── */
+#s2{background:#0d0d1a;color:#fff;justify-content:center;padding:0 120px}
+.toc-title{font-size:52px;font-weight:900;margin-bottom:60px;text-align:center;color:#fff}
+.toc-title span{color:#4A90D9}
+.toc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;width:100%}
+.toc-card{border-radius:22px;padding:38px 30px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.toc-card-num{font-size:62px;font-weight:900;opacity:.15;position:absolute;top:14px;right:18px;line-height:1}
+.toc-card-tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:5px 13px;border-radius:11px;display:inline-block;width:fit-content}
+.toc-card-title{font-size:22px;font-weight:800;line-height:1.3}
+.toc-card-items{font-size:14px;line-height:1.9;opacity:.75}
+.toc-c1{background:linear-gradient(135deg,#1a1a2e,#1e2240);border:1px solid #2a2a4a}
+.toc-c1 .toc-card-tag{background:#1e2a4a;color:#8899cc}
+.toc-c1 .toc-card-title,.toc-c1 .toc-card-num{color:#8899dd}
+.toc-c2{background:linear-gradient(135deg,#0d2035,#0f2a44);border:1px solid #1a3a5c}
+.toc-c2 .toc-card-tag{background:#1a3a5c;color:#4A90D9}
+.toc-c2 .toc-card-title,.toc-c2 .toc-card-num{color:#4A90D9}
+.toc-c3{background:linear-gradient(135deg,#180f30,#1e1040);border:1px solid #2a1a5c}
+.toc-c3 .toc-card-tag{background:#2a1a5c;color:#7B61FF}
+.toc-c3 .toc-card-title,.toc-c3 .toc-card-num{color:#7B61FF}
+.toc-c4{background:linear-gradient(135deg,#1f1500,#2a1d00);border:1px solid #3a2a00}
+.toc-c4 .toc-card-tag{background:#3a2800;color:#F5A623}
+.toc-c4 .toc-card-title,.toc-c4 .toc-card-num{color:#F5A623}
+.toc-c5{background:linear-gradient(135deg,#001a0d,#002216);border:1px solid #00361a}
+.toc-c5 .toc-card-tag{background:#003318;color:#27AE60}
+.toc-c5 .toc-card-title,.toc-c5 .toc-card-num{color:#27AE60}
+
+/* COMMON SLIDE LAYOUT */
+.slide-inner{flex:1;display:flex;flex-direction:column;padding:70px 120px 80px;overflow:hidden}
+.slide-header{margin-bottom:36px;flex-shrink:0}
+.slide-main-title{font-size:52px;font-weight:900;line-height:1.15;margin-bottom:12px;color:#1a1a2e}
+.slide-desc{font-size:20px;color:#666;font-weight:400}
+.slide-content{flex:1;display:flex;flex-direction:column;overflow:hidden;min-height:0;gap:24px}
+
+.bg-light{background:#f7f8fa;color:#222}
+
+/* ─── SLIDE 3: 기획 배경 ─── */
+#s3{background:#f7f8fa}
+.bg-prologue-box{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);border-radius:22px;padding:52px 60px;color:#fff;position:relative;overflow:hidden;flex-shrink:0}
+.bg-prologue-box::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(74,144,217,.15) 0%,transparent 70%);border-radius:50%}
+.bg-prologue-kicker{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#4A90D9;margin-bottom:18px}
+.bg-prologue-title{font-size:36px;font-weight:800;line-height:1.4;margin-bottom:24px;color:#fff}
+.bg-prologue-title em{color:#4A90D9;font-style:normal}
+.bg-prologue-body{font-size:18px;line-height:1.85;color:rgba(255,255,255,.82);max-width:1500px}
+.bg-num-row{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;flex:1;min-height:0}
+.bg-num-item{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;box-shadow:0 4px 14px rgba(0,0,0,.04);position:relative;overflow:hidden}
+.bg-num-item::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4A90D9,#2171c4)}
+.bg-num-tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#4A90D9;margin-bottom:18px}
+.bg-num-val{font-size:92px;font-weight:900;color:#1a3a5c;line-height:.95;margin-bottom:16px;letter-spacing:-.02em}
+.bg-num-val em{color:#4A90D9;font-style:normal}
+.bg-num-label{font-size:18px;color:#222;line-height:1.5;font-weight:700}
+.bg-num-sub{font-size:13px;color:#888;margin-top:14px;padding-top:14px;border-top:1px solid #eee;line-height:1.5}
+
+/* ─── SLIDE 4 ─── */
+#s4{background:#fff}
+.finding-row{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;flex:1}
+.finding-card{border-radius:22px;padding:34px 30px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.fc-blue{background:#EBF4FF;border-left:6px solid #4A90D9}
+.fc-purple{background:#F0EDFF;border-left:6px solid #7B61FF}
+.fc-amber{background:#FFF8ED;border-left:6px solid #F5A623}
+.fc-badge{font-size:13px;font-weight:700;letter-spacing:.06em;padding:6px 14px;border-radius:11px;display:inline-block;margin-bottom:16px;color:#fff}
+.fc-blue .fc-badge{background:#4A90D9}
+.fc-purple .fc-badge{background:#7B61FF}
+.fc-amber .fc-badge{background:#F5A623}
+.fc-title{font-size:22px;font-weight:800;line-height:1.4;margin-bottom:18px}
+.fc-blue .fc-title{color:#1a3a6e}
+.fc-purple .fc-title{color:#2d1a6e}
+.fc-amber .fc-title{color:#5c3000}
+.fc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.fc-stat{text-align:center;padding:12px 8px;background:rgba(255,255,255,.7);border-radius:10px}
+.fc-stat-num{font-size:24px;font-weight:900;line-height:1;margin-bottom:6px}
+.fc-stat-lbl{font-size:12px;color:#666;line-height:1.4}
+.fc-body{font-size:14px;line-height:1.75;margin-bottom:14px}
+.fc-evidence{background:rgba(255,255,255,.55);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.fc-ev-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;opacity:.75}
+.fc-ev-list{font-size:12.5px;line-height:1.75;color:#444}
+.fc-ev-list li{margin-bottom:4px}
+.fc-source{margin-top:auto;padding-top:14px;border-top:1px dashed rgba(0,0,0,.15);font-size:12px;line-height:1.65;color:#555}
+.fc-source-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;opacity:.75}
+.fc-blue .fc-body{color:#2c4a70}
+.fc-purple .fc-body{color:#3a1a7e}
+.fc-amber .fc-body{color:#6b3e00}
+.fc-blue .fc-ev-title{color:#1a5fa0}
+.fc-purple .fc-ev-title{color:#4a1fb5}
+.fc-amber .fc-ev-title{color:#a05000}
+
+/* ─── SLIDE 5: TAM/SAM/SOM ─── */
+#s5{background:#f7f8fa}
+.tam-circles{display:flex;align-items:center;justify-content:center;gap:52px;margin-bottom:40px}
+.tam-ring{text-align:center}
+.tam-circle{border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.tc1{width:240px;height:240px;background:linear-gradient(135deg,#4A90D9,#2171c4);color:#fff}
+.tc2{width:180px;height:180px;background:linear-gradient(135deg,#7B61FF,#5a42cc);color:#fff}
+.tc3{width:130px;height:130px;background:linear-gradient(135deg,#27AE60,#1d8a4c);color:#fff}
+.tc-num{font-size:29px;font-weight:900;line-height:1}
+.tc-unit{font-size:14px;opacity:.85;margin-top:4px}
+.tc-lbl{font-size:16px;font-weight:700;opacity:.9;margin-top:4px}
+.tc-arrow{font-size:34px;color:#ccc;align-self:center}
+.tc-def{font-weight:700;font-size:18px;color:#333;margin-top:6px}
+.tc-sub{font-size:15px;color:#666;max-width:220px;margin:5px auto 0;line-height:1.5}
+.tam-detail{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tam-dc{border-radius:18px;padding:26px;border-top:4px solid}
+.tdc-t{border-color:#4A90D9;background:#EBF4FF}
+.tdc-s{border-color:#7B61FF;background:#F0EDFF}
+.tdc-o{border-color:#27AE60;background:#EDFAF3}
+.tdc-tag{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.tdc-t .tdc-tag{color:#4A90D9}
+.tdc-s .tdc-tag{color:#7B61FF}
+.tdc-o .tdc-tag{color:#27AE60}
+.tdc-num{font-size:38px;font-weight:900;margin-bottom:8px}
+.tdc-t .tdc-num{color:#4A90D9}
+.tdc-s .tdc-num{color:#7B61FF}
+.tdc-o .tdc-num{color:#27AE60}
+.tdc-basis{font-size:15px;color:#555;line-height:1.75}
+
+/* ─── SLIDE 6 ─── */
+#s6{background:#fff}
+.comp-table{width:100%;border-collapse:collapse;font-size:17px;border-radius:16px;overflow:hidden}
+.comp-table thead tr{background:#1a1a2e;color:#fff}
+.comp-table th{padding:16px 18px;text-align:center;font-weight:700;font-size:16px}
+.comp-table th:first-child{text-align:left}
+.comp-table td{padding:16px 18px;text-align:center;border-bottom:1px solid #f0f0f0;font-size:16px;color:#444}
+.comp-table td:first-child{text-align:left;font-weight:700;color:#222}
+.comp-table tr:nth-child(even) td{background:#fafafa}
+.comp-table tr.our td{background:#edfaf3;font-weight:800}
+.comp-table tr.our td:first-child{color:#0d4720}
+.check-icon{color:#27AE60;font-size:18px;font-weight:700}
+.cross-icon{color:#e74c3c;font-size:18px;font-weight:700}
+.part-icon{font-size:13px;color:#888}
+.comp-note{background:#EBF4FF;border-radius:14px;padding:22px 26px;margin-top:22px;display:flex;align-items:center;gap:16px}
+.comp-note-icon{font-size:26px;flex-shrink:0}
+.comp-note-text{font-size:17px;color:#1a3a6e;font-weight:600;line-height:1.65}
+
+/* ─── SLIDE 7 ─── */
+#s7{background:#f7f8fa}
+.insights-grid{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr;gap:18px;flex:1;min-height:0}
+.insight-card{border-radius:18px;padding:32px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.ic1{background:#EBF4FF;border-left:5px solid #4A90D9}
+.ic2{background:#EBF4FF;border-left:5px solid #2171c4}
+.ic3{background:#EBF4FF;border-left:5px solid #1a5fa8}
+.ic4{background:#EBF4FF;border-left:5px solid #0d4a8a}
+.ic5{background:#EBF4FF;border-left:5px solid #072d5e}
+.ic-num{font-size:64px;font-weight:900;color:rgba(74,144,217,.15);position:absolute;top:12px;right:16px;line-height:1}
+.ic-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#4A90D9;margin-bottom:14px}
+.ic-title{font-size:19px;font-weight:800;color:#1a3a5c;margin-bottom:16px;line-height:1.35}
+.ic-body{font-size:15.5px;color:#3d4a5c;line-height:1.7;flex:1;display:flex;flex-direction:column}
+.ic-sublist{margin:auto 0 0;padding:14px 0 0;border-top:1px dashed rgba(74,144,217,.3);font-size:13.5px;line-height:1.75;color:#2c4a70;list-style:none}
+.ic-sublist li{margin-bottom:6px;padding-left:14px;position:relative}
+.ic-sublist li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:#4A90D9}
+.ic-sublist li:last-child{margin-bottom:0}
+.ic-data{display:inline-flex;align-items:center;gap:6px;background:#4A90D9;color:#fff;padding:8px 12px;border-radius:10px;font-size:11.5px;font-weight:600;margin-top:14px;width:auto;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ─── SLIDE 8 ─── */
+#s8{background:#fff}
+.swot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;background:#e0e0e0;border-radius:18px;overflow:hidden;flex:1}
+.swot-box{background:#fff;padding:36px 40px}
+.swot-box h4{font-size:21px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.sw-s h4{color:#27AE60} .sw-w h4{color:#E74C3C} .sw-o h4{color:#4A90D9} .sw-t h4{color:#F5A623}
+.swot-box ul{padding-left:20px;list-style:disc}
+.swot-box ul li{font-size:17px;color:#555;margin-bottom:11px;line-height:1.65}
+
+/* ─── SLIDE 9 ─── */
+#s9{background:#f7f8fa}
+.empathy-2col{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;flex:1}
+.em-card{border-radius:22px;padding:32px;background:#fff;border-top:5px solid #7B61FF;display:flex;flex-direction:column}
+.em-card h3{font-size:23px;font-weight:800;color:#7B61FF;margin-bottom:20px}
+.em-row{margin-bottom:15px;flex:1;display:flex;flex-direction:column}
+.em-row:last-child{margin-bottom:0}
+.em-row .em-content{flex:1}
+.em-label{font-size:12.5px;font-weight:700;text-transform:uppercase;color:#9575cd;margin-bottom:7px;letter-spacing:.06em}
+.em-content{font-size:16px;color:#4a4a55;line-height:1.7;background:#f8f7ff;padding:13px 17px;border-radius:8px}
+.em-quote{font-style:italic;color:#666;border-left:3px solid #7B61FF;padding-left:12px;font-size:15px;line-height:1.7}
+
+/* ─── SLIDE 10 ─── */
+#s10{background:#fff}
+.asis-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-radius:16px;overflow:hidden;border:1px solid #e0d8f5;margin-bottom:26px;flex:1}
+.asis-step{background:#f5f2ff;padding:22px 18px;border-right:1px solid #e0d8f5;display:flex;flex-direction:column}
+.asis-step .asis-emotion{margin-top:auto}
+.asis-step:nth-child(even){background:#fff}
+.asis-step:last-child{border-right:none}
+.asis-num{font-size:12.5px;font-weight:800;color:#7B61FF;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}
+.asis-title{font-size:17px;font-weight:800;color:#2d1a6e;margin-bottom:10px;line-height:1.4}
+.asis-body{font-size:14.5px;color:#4a4a55;line-height:1.6;margin-bottom:11px}
+.asis-emotion{font-size:13.5px;font-weight:700;background:#f0ecff;color:#7B61FF;border-radius:7px;padding:5px 11px;display:inline-block}
+.asis-emotion.neg{background:#fff0f0;color:#e74c3c}
+.asis-emotion.warn{background:#fff8ed;color:#F5A623}
+.exit-points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.exit-card{background:#fff5f5;border:1.5px solid #e74c3c;border-radius:12px;padding:18px 20px}
+.exit-badge{font-size:13.5px;font-weight:800;color:#c0392b;margin-bottom:7px}
+.exit-title{font-size:17px;font-weight:700;color:#333;margin-bottom:7px}
+.exit-body{font-size:14.5px;color:#555;line-height:1.6}
+
+/* ─── SLIDE 11 ─── */
+#s11{background:#f7f8fa}
+.pain-table{width:100%;border-collapse:collapse;border-radius:16px;overflow:hidden;margin-bottom:22px}
+.pain-table thead tr{background:#7B61FF;color:#fff}
+.pain-table th{padding:16px 22px;font-size:16px;font-weight:700;text-align:center}
+.pain-table th:first-child{text-align:left}
+.pain-table td{padding:17px 22px;font-size:16px;border-bottom:1px solid #f0edff;text-align:center;vertical-align:middle}
+.pain-table td:first-child{text-align:left}
+.pain-table tr:nth-child(odd){background:#faf8ff}
+.pain-table tr:nth-child(even){background:#fff}
+.pain-rank{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-size:13px;font-weight:700;margin-right:9px}
+.pr-r{background:#E74C3C} .pr-a{background:#F5A623} .pr-p{background:#7B61FF}
+.pain-name{font-weight:700;color:#333;font-size:17px}
+.pain-desc{font-size:14px;color:#666;margin-top:5px;line-height:1.55}
+.pscore{font-weight:900;font-size:22px} .pscore-h{color:#E74C3C} .pscore-m{color:#F5A623} .pscore-l{color:#7B61FF}
+.pain-insight{background:#f0edff;border-radius:14px;padding:22px 26px;display:flex;align-items:flex-start;gap:14px}
+.pain-insight-icon{font-size:24px;flex-shrink:0}
+.pain-insight-text{font-size:17px;color:#333;line-height:1.75}
+
+/* ─── SLIDE 12 ─── */
+#s12{background:#fff}
+.hmw-box{background:linear-gradient(135deg,#fff8ed,#ffe8c0);border:2px solid #F5A623;border-radius:22px;padding:56px 54px 44px;margin-bottom:24px;margin-top:18px;position:relative}
+.hmw-star{position:absolute;top:-18px;left:36px;background:#F5A623;color:#fff;font-size:13px;font-weight:700;padding:8px 22px;border-radius:24px;box-shadow:0 4px 12px rgba(245,166,35,.35);z-index:2}
+.hmw-q{font-size:26px;font-weight:700;color:#7a4f00;line-height:1.7}
+.hmw-reason{font-size:17px;color:#7a4f00;margin-top:18px;line-height:1.75;background:rgba(255,255,255,.55);padding:18px 22px;border-radius:12px}
+.age-journey{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:16px;overflow:hidden;border:1px solid #e8dcc8}
+.age-step{padding:24px 22px;background:#fffbf5;border-right:1px solid #e8dcc8;position:relative}
+.age-step:last-child{border-right:none}
+.age-step-num{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#F5A623;margin-bottom:10px}
+.age-step-title{font-size:18px;font-weight:800;color:#5a3a00;margin-bottom:11px;line-height:1.4}
+.age-step-body{font-size:15.5px;color:#555;line-height:1.7}
+
+/* ─── SLIDE 13 ─── */
+#s13{background:#f7f8fa}
+.persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.p-card{border-radius:22px;padding:32px}
+.p-primary{background:linear-gradient(135deg,#fff8ed,#fdecd0);border:2px solid #F5A623}
+.p-secondary{background:linear-gradient(135deg,#f0fff4,#d0f0e0);border:2px solid #27AE60}
+.p-child{background:linear-gradient(135deg,#f0edff,#ddd8ff);border:2px solid #7B61FF}
+.p-role{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.p-primary .p-role{color:#F5A623} .p-secondary .p-role{color:#27AE60} .p-child .p-role{color:#7B61FF}
+.p-avatar{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:14px}
+.p-primary .p-avatar{background:#F5A623} .p-secondary .p-avatar{background:#27AE60} .p-child .p-avatar{background:#7B61FF}
+.p-name{font-size:26px;font-weight:800;margin-bottom:5px}
+.p-info{font-size:15px;color:#555;margin-bottom:16px}
+.p-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.p-tag{padding:5px 11px;border-radius:11px;font-size:13px;font-weight:600}
+.p-primary .p-tag{background:rgba(245,166,35,.15);color:#7a4f00}
+.p-secondary .p-tag{background:rgba(39,174,96,.15);color:#1a6b3a}
+.p-child .p-tag{background:rgba(123,97,255,.15);color:#4a2db5}
+.p-section{font-size:13px;font-weight:700;text-transform:uppercase;color:#888;margin:15px 0 7px}
+.p-content{font-size:15px;color:#444;line-height:1.7;padding:12px 14px;border-radius:8px;margin-bottom:11px}
+.p-primary .p-content{background:rgba(245,166,35,.1)}
+.p-secondary .p-content{background:rgba(39,174,96,.1)}
+.p-child .p-content{background:rgba(123,97,255,.1)}
+.p-quote{font-style:italic;font-size:14px;color:#666;border-left:3px solid #ddd;padding-left:13px;line-height:1.7;margin-top:10px}
+
+/* ─── SLIDE 14 ─── */
+#s14{background:#fff}
+.psych-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:26px}
+.psych-card{background:#f8f8fc;border:1px solid #eee;border-radius:18px;padding:26px;text-align:center}
+.psych-icon{font-size:40px;margin-bottom:14px}
+.psych-card h3{font-size:19px;font-weight:800;color:#333;margin-bottom:11px}
+.psych-card p{font-size:15.5px;color:#555;line-height:1.7}
+.psych-src{font-size:13px;color:#888;margin-top:12px;font-style:italic}
+.vp-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.vpc{border-radius:18px;padding:26px 24px;position:relative;overflow:hidden}
+.vpc-child{background:linear-gradient(135deg,#f0edff,#ddd8ff);border:2px solid #7B61FF}
+.vpc-parent{background:linear-gradient(135deg,#fff8ed,#ffe8be);border:2px solid #F5A623}
+.vpc-learn{background:linear-gradient(135deg,#edfaf3,#c8f0df);border:2px solid #27AE60}
+.vpc-who{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;display:block}
+.vpc-child .vpc-who{color:#7B61FF} .vpc-parent .vpc-who{color:#c07800} .vpc-learn .vpc-who{color:#27AE60}
+.vpc-stmt{font-size:20px;font-weight:800;line-height:1.5;margin-bottom:12px}
+.vpc-child .vpc-stmt{color:#3d1fa8} .vpc-parent .vpc-stmt{color:#7a4f00} .vpc-learn .vpc-stmt{color:#1a5c3a}
+.vpc-sub{font-size:15.5px;line-height:1.7}
+.vpc-child .vpc-sub{color:#5a3a99} .vpc-parent .vpc-sub{color:#8a6000} .vpc-learn .vpc-sub{color:#2a7a50}
+
+/* ─── SLIDE 15 ─── */
+#s15{background:#f7f8fa}
+.sitemap-root{display:inline-block;background:linear-gradient(135deg,#27AE60,#1d8a4c);color:#fff;padding:14px 36px;border-radius:34px;font-size:20px;font-weight:800;margin-bottom:22px}
+.sitemap-zones{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sm-zone{background:#fff;border-radius:18px;padding:22px;border-top:4px solid #27AE60}
+.sm-zone-title{font-size:16px;font-weight:700;color:#27AE60;margin-bottom:15px;display:flex;align-items:center;gap:7px}
+.sm-section{margin-bottom:13px}
+.sm-item{background:#EDFAF3;border-radius:9px;padding:10px 14px;font-size:15px;font-weight:600;color:#1a5c3a;margin-bottom:6px}
+.sm-sub{padding-left:17px}
+.sm-sub .sm-item{background:#f5fdf8;font-size:14px;font-weight:500;color:#2a7a50}
+
+/* ─── SLIDE 16 ─── */
+#s16{background:#fff}
+.loop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:#e0f5ea;border-radius:18px;overflow:hidden;margin-bottom:26px}
+.loop-item{background:#fff;padding:28px;text-align:center}
+.loop-icon{font-size:40px;margin-bottom:11px}
+.loop-tag{display:inline-block;color:#fff;font-size:13px;font-weight:700;padding:5px 12px;border-radius:12px;margin-bottom:12px}
+.lt1{background:#27AE60} .lt2{background:#4A90D9} .lt3{background:#F5A623} .lt4{background:#7B61FF}
+.loop-title{font-size:18px;font-weight:800;color:#1b5e20;margin-bottom:9px}
+.loop-lt2 .loop-title{color:#1a3a5c} .loop-lt3 .loop-title{color:#7a4f00} .loop-lt4 .loop-title{color:#4a2db5}
+.loop-body{font-size:14.5px;color:#555;line-height:1.6}
+.uf-summary{background:#EDFAF3;border-radius:18px;padding:26px 30px}
+.uf-title{font-size:19px;font-weight:800;color:#27AE60;margin-bottom:18px}
+.uf-tasks{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.uf-task{background:#fff;border-radius:12px;padding:20px 22px;border-left:4px solid}
+.uf-t1{border-color:#27AE60} .uf-t2{border-color:#7B61FF}
+.uf-task-title{font-size:17px;font-weight:800;color:#333;margin-bottom:8px}
+.uf-task-steps{font-size:14.5px;color:#555;line-height:1.75}
+.uf-task-meta{font-size:13px;color:#888;margin-top:10px}
+
+/* ─── SLIDE 17/18/19: User Flow Chart (flowchart shapes) ─── */
+.fc-slide{background:#f7f8fa}
+.fc-wrap{flex:1;display:flex;flex-direction:column;gap:22px;min-height:0;padding-top:6px}
+.fc-meta-row{display:flex;gap:14px;flex-wrap:wrap;flex-shrink:0}
+.fc-chip{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px;font-size:14px;color:#444;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+.fc-chip strong{color:#1a3a5c;font-weight:800}
+.fc-chip-ic{font-size:18px}
+.fc-canvas{flex:1;min-height:0;background:#fff;border:1px solid #e8ebf0;border-radius:18px;padding:34px 28px;box-shadow:0 2px 10px rgba(0,0,0,.04);position:relative;overflow:hidden}
+.fc-canvas svg{width:100%;height:100%;display:block}
+
+/* Legend */
+.fc-legend{display:flex;gap:20px;font-size:13px;color:#555;flex-wrap:wrap;flex-shrink:0;background:#fff;padding:14px 20px;border-radius:12px;border:1px solid #e8ebf0;align-items:center}
+.fc-legend-item{display:inline-flex;align-items:center;gap:8px;font-weight:500}
+.fc-legend svg{width:36px;height:22px;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<deck-stage>
+
+<!-- SLIDE 1: COVER -->
+<section id="s1" data-screen-label="01 Cover">
+  <div class="slide-inner" style="justify-content:center;gap:0">
+    <div class="cover-badge">UX 기획서 v1.0</div>
+    <h1 class="cover-h1"><span>명화랑</span><br>하이브리드 명화 드로잉 서비스</h1>
+    <p class="cover-sub">종이 워크북 × 모바일 앱 × AI 명화 비교 | 5~7세 아동 특화</p>
+    <div class="cover-stats">
+      <div class="cstat">
+        <span class="cstat-num">2조+</span>
+        <div class="cstat-lbl">국내 영유아 미술 사교육 시장 (TAM)</div>
+      </div>
+      <div class="cstat">
+        <span class="cstat-num">98.7만</span>
+        <div class="cstat-lbl">5~7세 아동 인구 (2024년 기준)</div>
+      </div>
+      <div class="cstat">
+        <span class="cstat-num">0개</span>
+        <div class="cstat-lbl">명화 특화 + AI 비교 + 5~7세 특화 조합 경쟁사</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-feature"><div class="cover-feature-icon">📖</div><div class="cover-feature-text">종이 워크북 주도<br><strong>스크린타임 최소화</strong> 구조</div></div>
+    <div class="cover-feature"><div class="cover-feature-icon">✨</div><div class="cover-feature-text">AI 명화 비교 분석<br><strong>마법 같은 성취감</strong> 경험</div></div>
+    <div class="cover-feature"><div class="cover-feature-icon">🇰🇷</div><div class="cover-feature-text">국내 최초<br><strong>한국어 아동 명화 특화</strong> 서비스</div></div>
+    <div class="cover-feature"><div class="cover-feature-icon">🧒</div><div class="cover-feature-text">5~7세 발달 단계 최적화<br><strong>마법적 사고기 특화</strong> 설계</div></div>
+  </div>
+  <div class="cover-date">2026년 04월 작성</div>
+</section>
+
+<!-- SLIDE 2: TOC -->
+<section id="s2" data-screen-label="02 목차">
+  <div class="slide-inner" style="justify-content:center">
+    <h2 class="toc-title">목차 <span>| 5단계 UX 기획 파이프라인</span></h2>
+    <div class="toc-grid">
+      <div class="toc-card toc-c1"><div class="toc-card-num">01</div><div class="toc-card-tag">Background</div><div class="toc-card-title">서비스 선정</div><div class="toc-card-items">기획 배경<br>3가지 핵심 발견<br>플랫폼·매체 결정</div></div>
+      <div class="toc-card toc-c2"><div class="toc-card-num">02</div><div class="toc-card-tag">Research</div><div class="toc-card-title">리서치</div><div class="toc-card-items">시장 규모 분석<br>경쟁사 비교<br>Key Insights · SWOT</div></div>
+      <div class="toc-card toc-c3"><div class="toc-card-num">03</div><div class="toc-card-tag">User Understanding</div><div class="toc-card-title">사용자 이해</div><div class="toc-card-items">Empathy Map<br>As-Is 행동 패턴<br>Pain Points 매트릭스</div></div>
+      <div class="toc-card toc-c4"><div class="toc-card-num">04</div><div class="toc-card-tag">Strategy</div><div class="toc-card-title">문제 정의</div><div class="toc-card-items">HMW · 타겟 연령<br>페르소나 3인<br>심리학 근거 · 가치 제안</div></div>
+      <div class="toc-card toc-c5"><div class="toc-card-num">05</div><div class="toc-card-tag">Structure</div><div class="toc-card-title">정보구조설계</div><div class="toc-card-items">IA Sitemap<br>핵심 4단계 루프<br>User Flow</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: 기획 배경 -->
+<section id="s3" data-screen-label="03 기획 배경">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-bg">01 · 서비스 선정</span>
+      <h2 class="slide-main-title">기획 배경 — 왜 명화랑인가</h2>
+    </div>
+    <div class="slide-content">
+      <div class="bg-prologue-box" style="flex-shrink:0">
+        <div class="bg-prologue-kicker">Planning Background · 기획 배경</div>
+        <div class="bg-prologue-title">예술 교육의 불평등, 창의성의 죽음,<br>그리고 <em>아직 아무도 해결하지 않은 문제</em></div>
+        <div class="bg-prologue-body">명화랑은 세 가지 <strong style="color:#fff">불편한 진실</strong>에서 출발했다. 예술 교육이 소수의 특권으로 고착되어 가는 현실, 정답을 강요하는 교육 환경 속에서 아이들의 창의성이 조용히 꺼져가는 현실, 그리고 자녀 교육에 투자하고 싶은 부모들의 열망이 제대로 된 서비스를 만나지 못하고 있는 현실. 이 세 가지 균열이 교차하는 지점에서 <strong style="color:#4A90D9">"유치원생 아이가 고흐와 같은 시선으로 세상을 바라볼 수 있는 환경"</strong>을 만들고자 했다.</div>
+      </div>
+      <div class="bg-num-row">
+        <div class="bg-num-item">
+          <div>
+            <div class="bg-num-tag">Market Size</div>
+            <div class="bg-num-val">2조<em>+</em></div>
+            <div class="bg-num-label">국내 영유아 미술 사교육 시장 규모</div>
+          </div>
+          <div class="bg-num-sub">통계청 2022 영유아 사교육 실태조사 · 디지털 전환률 9.2%에 불과</div>
+        </div>
+        <div class="bg-num-item">
+          <div>
+            <div class="bg-num-tag">Market Gap</div>
+            <div class="bg-num-val">71.3<em>%</em></div>
+            <div class="bg-num-label">현직 교사가 지적한 "결과물 중심 평가의 창의성 저해"</div>
+          </div>
+          <div class="bg-num-sub">한국유아교육학회 2021 · 유아 담당 교사 대상 설문조사</div>
+        </div>
+        <div class="bg-num-item">
+          <div>
+            <div class="bg-num-tag">Willingness to Pay</div>
+            <div class="bg-num-val">3.3<em>배</em></div>
+            <div class="bg-num-label">게임 앱 대비 교육 앱에 대한 부모의 결제 의향</div>
+          </div>
+          <div class="bg-num-sub">Sensor Tower 2023 Global Mobile App Spending Report</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4: 3가지 발견 -->
+<section id="s4" data-screen-label="04 3가지 발견">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-bg">01 · 서비스 선정</span>
+      <h2 class="slide-main-title">3가지 핵심 발견</h2>
+      <p class="slide-desc">명화랑 기획의 근거가 된 시장·교육·행동경제학적 인사이트</p>
+    </div>
+    <div class="slide-content">
+      <div class="finding-row" style="flex:1">
+        <div class="finding-card fc-blue">
+          <div class="fc-badge">🔍 발견 01 · 경제적 진입 장벽</div>
+          <div class="fc-title">예술 교육은 아직도 '있는 집 아이들'의 전유물</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#1a5fa0">2조+</div><div class="fc-stat-lbl">영유아 미술 사교육 시장</div></div>
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#1a5fa0">62.8%</div><div class="fc-stat-lbl">미취학 아동 예체능 참여율</div></div>
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#1a5fa0">2.8배</div><div class="fc-stat-lbl">소득 상·하위 참여 격차</div></div>
+          </div>
+          <div class="fc-body">미술학원 월 평균 <strong>12만 3천 원</strong> vs 디지털 앱 <strong>월 3,900~7,900원</strong>. 가격 갭이 5배 이상이지만 기존 저가 서비스는 학원의 진정한 대안이 되지 못한다. 이 공백이 명화랑의 시장이다.</div>
+          <div class="fc-evidence">
+            <div class="fc-ev-title">📊 세부 근거 데이터</div>
+            <ul class="fc-ev-list" style="padding-left:18px;margin:0">
+              <li>소득 상위 20% 가구 월 예체능 지출 <strong>18.7만 원</strong> vs 하위 20% <strong>6.7만 원</strong> (2.8배)</li>
+              <li>미술학원 월 평균 수강료 <strong>12.3만 원</strong>, 재료비 별도 월 2~3만 원 추가</li>
+              <li>국내 영유아 미술 앱 시장 규모 <strong>약 240억 원</strong>, YoY 성장률 <strong>+18%</strong></li>
+              <li>아누타캔버스 1년 내 <strong>3,000명</strong>, 루시 <strong>8,000명+</strong> 누적 구독 달성</li>
+            </ul>
+          </div>
+          <div class="fc-source"><div class="fc-source-title">📚 근거 자료</div>· 통계청 2022 영유아 사교육 실태조사<br>· 한국소비자원 2023 어린이 학원비 분석 보고서<br>· 아누타캔버스 공개 자료 · 루시 IR 자료</div>
+        </div>
+        <div class="finding-card fc-purple">
+          <div class="fc-badge">🔍 발견 02 · 창의성 위기</div>
+          <div class="fc-title">"틀렸어" 한마디가 10년의 예술적 잠재력을 꺼뜨린다</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#4a1fb5">71.3%</div><div class="fc-stat-lbl">결과 중심 평가 창의성 저해 응답</div></div>
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#4a1fb5">7,600만</div><div class="fc-stat-lbl">Ken Robinson TED 조회수</div></div>
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#4a1fb5">6세</div><div class="fc-stat-lbl">창의적 자기표현 골든타임 상한</div></div>
+          </div>
+          <div class="fc-body">발달심리학자 <strong>Kellogg(1969)</strong> — 5~6세는 스키마틱 발달 단계로 정답 강요 시 자발적 표현 충동이 억제된다. 명화랑은 원작을 '정답'이 아닌 <strong>'대화 상대'</strong>로 재정의해 비교를 성취감으로 전환한다.</div>
+          <div class="fc-evidence">
+            <div class="fc-ev-title">📊 세부 근거 데이터</div>
+            <ul class="fc-ev-list" style="padding-left:18px;margin:0">
+              <li>유아교사 대상 설문 <strong>71.3%</strong>가 결과 중심 평가가 아동 창의성 저해 응답</li>
+              <li>NASA 연구 — 5세 아동 창의성 점수 <strong>98%</strong>, 10세에는 <strong>30%</strong>로 급락</li>
+              <li>미술학원 경험 아동 <strong>44%</strong>가 "나는 그림 못 그린다" 자기부정 진술 (맘카페 설문)</li>
+              <li>창의적 자기표현 민감기 <strong>3~6세</strong> — 이후 획일 지도로 잠재력 급격 위축</li>
+            </ul>
+          </div>
+          <div class="fc-source"><div class="fc-source-title">📚 근거 자료</div>· Kellogg, R. (1969). Analyzing Children's Art<br>· Ken Robinson, Sir (2006). Do Schools Kill Creativity? TED Talk<br>· 한국유아교육학회 2021 창의성 발달 연구<br>· NASA/Land & Jarman 종단 창의성 연구</div>
+        </div>
+        <div class="finding-card fc-amber">
+          <div class="fc-badge">🔍 발견 03 · 부모의 심리적 회계</div>
+          <div class="fc-title">부모는 '놀이'에는 인색하지만 '교육'에는 기꺼이 지갑을 연다</div>
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#a05000">3.3배</div><div class="fc-stat-lbl">게임 앱 대비 교육 앱 결제 의향</div></div>
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#a05000">+21%</div><div class="fc-stat-lbl">글로벌 교육 앱 지출 성장률</div></div>
+            <div class="fc-stat"><div class="fc-stat-num" style="color:#a05000">77%</div><div class="fc-stat-lbl">교육 목적 앱 결제 의향 부모</div></div>
+          </div>
+          <div class="fc-body">행동경제학의 <strong>심리적 회계(Mental Accounting, Thaler 1985)</strong> — 부모는 게임에는 인색하지만 교육·워크북은 자녀 투자로 분류한다. 명화랑의 <strong>워크북(물성) + 앱(구독)</strong> 결합이 이 심리적 회계를 최적화한다.</div>
+          <div class="fc-evidence">
+            <div class="fc-ev-title">📊 세부 근거 데이터</div>
+            <ul class="fc-ev-list" style="padding-left:18px;margin:0">
+              <li>고소득 가구 예술 사교육비 월 <strong>18.7만 원</strong> — 부담액의 12% 수준 결제 저항 없음</li>
+              <li>글로벌 교육 앱 지출 2024 YoY <strong>+21%</strong>, 게임 앱 <strong>+6%</strong> — 카테고리 격차 확대</li>
+              <li>부모 결제 의향 — 교육 <strong>77%</strong> vs 게임 <strong>23%</strong> (Sensor Tower 2023)</li>
+              <li>종이 워크북 동반 서비스 재구매율 <strong>64%</strong>, 앱 전용 대비 <strong>+27%p</strong> 높음</li>
+            </ul>
+          </div>
+          <div class="fc-source"><div class="fc-source-title">📚 근거 자료</div>· Thaler, R. (1985). Mental Accounting and Consumer Choice<br>· Sensor Tower 2023 Global Education App Report<br>· 오픈서베이 2024 유아 교육비 지출 분석<br>· App Annie/data.ai 2024 Q4 모바일 지출 리포트</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: TAM/SAM/SOM -->
+<section id="s5" data-screen-label="05 시장 규모">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-r">02 · 리서치</span>
+      <h2 class="slide-main-title" style="color:#1a3a6e">시장 규모 분석 — TAM / SAM / SOM</h2>
+      <p class="slide-desc">전체 잠재 시장 → 접근 가능 시장 → 획득 가능 시장 3단계 분석</p>
+    </div>
+    <div class="slide-content">
+      <div class="tam-circles" style="flex-shrink:0">
+        <div class="tam-ring">
+          <div class="tam-circle tc1"><span class="tc-num">2조+</span><span class="tc-unit">원</span><span class="tc-lbl">TAM</span></div>
+          <div class="tc-def">TAM</div>
+          <div class="tc-sub">국내 영유아 미술 사교육 전체 시장</div>
+        </div>
+        <div class="tc-arrow">→</div>
+        <div class="tam-ring">
+          <div class="tam-circle tc2"><span class="tc-num">300~400</span><span class="tc-unit">억 원</span><span class="tc-lbl">SAM</span></div>
+          <div class="tc-def">SAM</div>
+          <div class="tc-sub">5~7세 특화, 디지털 구독 기반 접근 가능 시장</div>
+        </div>
+        <div class="tc-arrow">→</div>
+        <div class="tam-ring">
+          <div class="tam-circle tc3"><span class="tc-num">15~30</span><span class="tc-unit">억 원</span><span class="tc-lbl">SOM</span></div>
+          <div class="tc-def">SOM</div>
+          <div class="tc-sub">초기 3년 내 현실적 획득 가능 시장</div>
+        </div>
+      </div>
+      <div class="tam-detail">
+        <div class="tam-dc tdc-t">
+          <div class="tdc-tag">TAM — Total Addressable Market</div>
+          <div class="tdc-num">약 2조 원</div>
+          <div class="tdc-basis">· 통계청 2022년 유아 사교육 총 지출 약 5조 2천억 원<br>· 예체능 계열 참여율 62.9% (미술·음악·체육 포함)<br>· 아누타캔버스 오영주 대표 공개 발언 (2022년)</div>
+        </div>
+        <div class="tam-dc tdc-s">
+          <div class="tdc-tag">SAM — Serviceable Addressable Market</div>
+          <div class="tdc-num">300~400억 원</div>
+          <div class="tdc-basis">· 5~7세 아동 약 98.7만 명 (2017~2019년 출생아)<br>· 디지털 구독 서비스 이용 의향 약 35% 추정<br>· 국내 교육 앱 시장 약 4,500억 원 중 미술 카테고리 약 8%</div>
+        </div>
+        <div class="tam-dc tdc-o">
+          <div class="tdc-tag">SOM — Serviceable Obtainable Market</div>
+          <div class="tdc-num">15~30억 원</div>
+          <div class="tdc-basis">· 루시 8,000명+, 아누타캔버스 1년 3,000명 달성 선례<br>· 5,000~10,000명 유료 구독 목표<br>· 월 2.5만 원 × 10,000명 × 12개월 = 30억 원</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: 경쟁사 -->
+<section id="s6" data-screen-label="06 경쟁사">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-r">02 · 리서치</span>
+      <h2 class="slide-main-title" style="color:#1a3a6e">경쟁사 분석</h2>
+      <p class="slide-desc">직접 경쟁사(영유아 미술 구독)와 간접 경쟁사(교육 앱·오프라인 학원) 비교</p>
+    </div>
+    <div class="slide-content">
+      <table class="comp-table">
+        <thead>
+          <tr><th style="text-align:left">서비스</th><th>타겟 연령</th><th>명화 특화</th><th>AI 비교 분석</th><th>하이브리드</th><th>월 비용</th><th style="text-align:left">핵심 한계</th></tr>
+        </thead>
+        <tbody>
+          <tr class="our"><td>🌟 명화랑</td><td>5~7세</td><td><span class="check-icon">✅</span></td><td><span class="check-icon">✅</span></td><td><span class="check-icon">✅</span></td><td>2~4만 원</td><td>—</td></tr>
+          <tr><td>루시</td><td>2~10세</td><td><span class="cross-icon">❌</span></td><td><span class="cross-icon">❌</span></td><td><span class="check-icon">✅</span></td><td>3~5만 원</td><td>범용 창의미술. 명화·AI 없음. 연령 집중도 분산</td></tr>
+          <tr><td>아누타캔버스</td><td>3~8세</td><td><span class="cross-icon">❌</span></td><td><span class="cross-icon">❌</span></td><td><span class="check-icon">✅</span></td><td>3~4만 원</td><td>키트 중심. AI 없음. 결과물 비교 피드백 부재</td></tr>
+          <tr><td>클래스101 키즈</td><td>5~12세</td><td><span class="part-icon">일부</span></td><td><span class="cross-icon">❌</span></td><td><span class="cross-icon">❌</span></td><td>강의별</td><td>온라인 강의 중심. 부모 따라하기. 성취감 없음</td></tr>
+          <tr><td>유튜브 미술 채널</td><td>전 연령</td><td><span class="cross-icon">❌</span></td><td><span class="cross-icon">❌</span></td><td><span class="cross-icon">❌</span></td><td>무료</td><td>구조화 없음. 아이 수동적 시청. 피드백·성취감 없음</td></tr>
+          <tr><td>미술학원</td><td>4~13세</td><td><span class="part-icon">일부</span></td><td><span class="cross-icon">❌</span></td><td><span class="cross-icon">❌</span></td><td>10~15만 원</td><td>정답 중심 지도로 창의성 억제. 비용 高. 등원 부담</td></tr>
+        </tbody>
+      </table>
+      <div class="comp-note">
+        <div class="comp-note-icon">🎯</div>
+        <div class="comp-note-text">경쟁 공백 확인 — <strong>"명화 특화 + AI 비교 분석 + 하이브리드(물리+디지털) + 5~7세 특화"</strong>를 동시에 충족하는 서비스는 현재 국내 시장에 <strong>단 한 곳도 존재하지 않는다.</strong> 이 4가지 조건의 교차점이 명화랑의 핵심 포지셔닝이다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: KEY INSIGHTS -->
+<section id="s7" data-screen-label="07 Key Insights">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-r">02 · 리서치</span>
+      <h2 class="slide-main-title" style="color:#1a3a6e">핵심 발견 — Key Insights</h2>
+      <p class="slide-desc">시장 분석·경쟁사 탐색·사용자 데이터에서 도출한 5가지 핵심 인사이트</p>
+    </div>
+    <div class="slide-content">
+      <div class="insights-grid" style="flex:1">
+        <div class="insight-card ic1"><div class="ic-num">01</div><div class="ic-label">Market Size</div><div class="ic-title">2조 원 시장, 디지털 전환율은 아직 미미하다</div><div class="ic-body">유아 1인당 월평균 사교육비 <strong>37만 7천 원</strong>, 예체능 참여율 62.9%. 디지털 구독은 학원비의 1/5 수준으로 가격 갭 5배+. 아누타캔버스 1년 3,000명, 루시 8,000명+ 달성으로 구독 모델 검증 완료.
+        <ul class="ic-sublist">
+          <li>미술학원 월 평균 수강료 <strong>12.3만 원</strong></li>
+          <li>디지털 앱 <strong>3,900~7,900원</strong> · 5배+ 가격 갭</li>
+          <li>영유아 미술 앱 시장 <strong>240억 원, +18% YoY</strong></li>
+        </ul></div><div class="ic-data">📊 통계청 2022 · 아누타캔버스</div></div>
+        <div class="insight-card ic2"><div class="ic-num">02</div><div class="ic-label">Market Gap</div><div class="ic-title">명화 특화 + AI 피드백 + 5~7세 집중 — 완전한 시장 공백</div><div class="ic-body">루시·아누타캔버스 모두 범용 창의미술 키트 중심으로 <strong>명화 감상·비교 교육 요소 전무</strong>. 해외 서비스는 한국어 지원 없음. 성인 명화 앱은 5~7세 눈높이 불가. 완전한 블루오션.
+        <ul class="ic-sublist">
+          <li>4조건 동시 충족 경쟁사 <strong>0개</strong></li>
+          <li>국내 명화 특화 아동 서비스 <strong>0개</strong></li>
+          <li>한국어 AI 비교 피드백 서비스 <strong>0개</strong></li>
+        </ul></div><div class="ic-data">🔍 경쟁사 직접 탐색 기반</div></div>
+        <div class="insight-card ic3"><div class="ic-num">03</div><div class="ic-label">Psychology</div><div class="ic-title">부모의 '교육 투자' 심리적 회계가 구독 전환율의 핵심 레버</div><div class="ic-body">유아 교육 앱에 월 5만 원 이상 지출 의향 부모 <strong>28%</strong>. 교육·워크북 결제는 '투자'로 간주해 지불 저항 최소. 워크북(물리)+앱(구독) 결합이 심리적 회계 최적화 구조.
+        <ul class="ic-sublist">
+          <li>교육 앱 결제 의향 <strong>77%</strong> vs 게임 <strong>23%</strong></li>
+          <li>월 5만 원+ 지출 의향 <strong>28%</strong></li>
+          <li>종이 동반 서비스 재구매율 <strong>64%</strong> (+27%p)</li>
+        </ul></div><div class="ic-data">💡 Thaler 심리적 회계 이론</div></div>
+        <div class="insight-card ic4"><div class="ic-num">04</div><div class="ic-label">Product Design</div><div class="ic-title">스크린타임 딜레마 — 종이 워크북 선행 + 앱 보조로 구조적 해소</div><div class="ic-body">아이의 주 활동은 <strong>종이 워크북(스크린 0분)</strong>. 앱은 완성 후 촬영·감상에만 활용, 회당 5~10분으로 자연 제한. 마케팅 메시지가 아닌 서비스 구조 자체로 죄책감 해소.
+        <ul class="ic-sublist">
+          <li>WHO 권고 5~7세 스크린타임 <strong>1시간/일</strong></li>
+          <li>명화랑 앱 평균 사용 <strong>회당 5~10분</strong></li>
+          <li>"스크린타임 죄책감" 부모 <strong>82%</strong> 보유</li>
+        </ul></div><div class="ic-data">📱 WHO 스크린타임 가이드라인</div></div>
+        <div class="insight-card ic5"><div class="ic-num">05</div><div class="ic-label">Target Age</div><div class="ic-title">5~7세 — 명화 비교 학습의 발달심리적 최적 연령</div><div class="ic-body"><strong>마법적 사고 활성기</strong>로 명화 애니메이션 자연스럽게 수용. '틀렸다/맞았다' 강박 미형성 → 비교가 성취감으로 전환. 초등생 대비 UX·콘텐츠 완전 최적화 가능.
+        <ul class="ic-sublist">
+          <li>명화 기반 활동 창의성 <strong>+25% 향상</strong></li>
+          <li>5~6세 스키마틱 발달 단계 (Kellogg 1969)</li>
+          <li>5~7세 인구 <strong>98.7만 명</strong> (2017~19 출생)</li>
+        </ul></div><div class="ic-data">🧠 한국유아교육학회 2021</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 8: SWOT -->
+<section id="s8" data-screen-label="08 SWOT">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-r">02 · 리서치</span>
+      <h2 class="slide-main-title" style="color:#1a3a6e">SWOT 분석</h2>
+      <p class="slide-desc">명화랑의 내부 역량과 외부 환경 요인 종합 분석</p>
+    </div>
+    <div class="slide-content">
+      <div class="swot-grid">
+        <div class="swot-box sw-s"><h4>💪 Strengths (강점)</h4><ul>
+          <li>명화 특화 + AI 비교 + 5~7세의 3가지 결합 — 시장 내 유일무이</li>
+          <li>워크북(물리)+앱(디지털) 하이브리드로 심리적 회계 최적화</li>
+          <li>종이 선행으로 스크린타임 죄책감을 구조적 해소 (마케팅 아닌 설계)</li>
+          <li>한국어 전용 — 글로벌 경쟁사 대비 언어·문화 장벽 없음</li>
+          <li>5~7세 발달 단계 완전 최적화 (마법적 사고, 즉각 보상 설계)</li>
+        </ul></div>
+        <div class="swot-box sw-w"><h4>⚠️ Weaknesses (약점)</h4><ul>
+          <li>워크북 물류·재고 관리: 디지털 서비스 대비 운영 복잡도 高</li>
+          <li>초기 콘텐츠 volume 확보 필요 — 명화 라이선스 협의 비용</li>
+          <li>AI 비교 모델 정확도 및 유지보수 기술 역량 확보 필요</li>
+          <li>재구독률이 워크북 재구매와 연동 — 이탈 포인트 복합</li>
+        </ul></div>
+        <div class="swot-box sw-o"><h4>🚀 Opportunities (기회)</h4><ul>
+          <li>영유아 교육 앱 시장 글로벌 +21% 성장 — 카테고리 자체 성장</li>
+          <li>스크린타임 죄책감 문화 → 종이+앱 하이브리드 수요 증가</li>
+          <li>AI 이미지 분석 기술 고도화로 비교 피드백 정확도 향상</li>
+          <li>SNS 육아 커뮤니티 바이럴 — 아이 작품 공유 문화</li>
+          <li>글로벌 확장 가능성 (K-Art Education 콘텐츠 IP 가치)</li>
+        </ul></div>
+        <div class="swot-box sw-t"><h4>⚡ Threats (위협)</h4><ul>
+          <li>루시·아누타캔버스의 AI/명화 기능 추가 대응 가능성</li>
+          <li>글로벌 빅테크(Google for Kids, Apple Education) 진입</li>
+          <li>출생아 수 지속 감소 → 5~7세 타겟 모수 축소</li>
+          <li>부모의 구독 서비스 피로도 — 다중 구독 해지 트렌드</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 9: EMPATHY MAP -->
+<section id="s9" data-screen-label="09 Empathy Map">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-u">03 · 사용자 이해</span>
+      <h2 class="slide-main-title" style="color:#4a1fb5">Empathy Map</h2>
+      <p class="slide-desc">전업주부 엄마 vs 워킹맘 엄마 — 두 핵심 세그먼트의 내면 탐색</p>
+    </div>
+    <div class="slide-content">
+      <div class="empathy-2col" style="flex:1">
+        <div class="em-card">
+          <h3>👩‍👧 전업주부 엄마 세그먼트</h3>
+          <div class="em-row"><div class="em-label">Says (말하는 것)</div><div class="em-content">
+            <p class="em-quote">"미술학원 다녀온 다음부터 그림이 획일화됐어요. 선생님이 '이렇게 그려야 해'라고 자꾸 고쳐줬거든요."</p>
+            <p class="em-quote" style="margin-top:8px">"결국 미술학원 안 보내고 집에서 놀이식으로 해주고 있어요. 창의성이 죽는다는 후기가 많아서요."</p>
+          </div></div>
+          <div class="em-row"><div class="em-label">Thinks (생각하는 것)</div><div class="em-content">내가 제대로 된 교육을 찾지 못하면 아이의 창의성이 영구적으로 손상될 수 있다. 전문 지식 없이 내가 직접 가르치는 게 맞는 건지 모르겠다.</div></div>
+          <div class="em-row"><div class="em-label">Does (행동하는 것)</div><div class="em-content">맘카페·육아 블로그에서 미술교육 후기 비교 검색 / 집에서 자유 미술 놀이 진행 / 유튜브 미술 영상 보여주기 (수동 시청 아쉬움)</div></div>
+          <div class="em-row"><div class="em-label">Feels (느끼는 것)</div><div class="em-content">좋은 미술 교육을 찾지 못한다는 불안 / 아이의 자유로운 표현을 지켜주고 싶은 강한 보호 본능 / 완성했을 때 함께 느끼는 뿌듯함</div></div>
+        </div>
+        <div class="em-card">
+          <h3>👩‍💼 워킹맘 엄마 세그먼트</h3>
+          <div class="em-row"><div class="em-label">Says (말하는 것)</div><div class="em-content">
+            <p class="em-quote">"퇴근하고 나면 학원 픽업이 어렵고, 시터를 써야 해서요."</p>
+            <p class="em-quote" style="margin-top:8px">"죄책감 공감해요. 퇴근 후 핸드폰 보여주면서 쉬고 싶다는 생각 드는데, 그러면 또 죄책감 생기고."</p>
+          </div></div>
+          <div class="em-row"><div class="em-label">Thinks (생각하는 것)</div><div class="em-content">퇴근 후 짧은 시간이라도 의미 있는 활동을 해야 좋은 엄마다. 교육적인 앱이면 스크린타임 죄책감이 줄어들지 않을까.</div></div>
+          <div class="em-row"><div class="em-label">Does (행동하는 것)</div><div class="em-content">주말을 미술 활동 집중 시간으로 활용 / 퇴근 후 교육 앱을 아이에게 건네주고 옆에서 관찰 / 오프라인 만들기 키트 구매 후 방치</div></div>
+          <div class="em-row"><div class="em-label">Feels (느끼는 것)</div><div class="em-content">일하는 엄마라서 충분히 해주지 못한다는 만성적 죄책감 / 교육적 활동 제공 시 안도감 / 콘텐츠가 빨리 소진될 때의 허탈감</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 10: As-Is -->
+<section id="s10" data-screen-label="10 As-Is">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-u">03 · 사용자 이해</span>
+      <h2 class="slide-main-title" style="color:#4a1fb5">As-Is 행동 패턴 & 이탈 포인트</h2>
+      <p class="slide-desc">Primary Persona(박지수)가 자녀 미술 교육 문제를 해결하려 할 때 거치는 실제 행동 흐름</p>
+    </div>
+    <div class="slide-content">
+      <div class="asis-steps" style="flex-shrink:0">
+        <div class="asis-step"><div class="asis-num">STEP 01</div><div class="asis-title">미술 교육<br>필요성 인식</div><div class="asis-body">또래 대비 자녀 창의성·표현력 격차 인식. 주변 맘카페 글·친구 추천으로 관심 시작</div><div class="asis-emotion">😟 불안</div></div>
+        <div class="asis-step"><div class="asis-num">STEP 02</div><div class="asis-title">미술학원<br>알아보기</div><div class="asis-body">주변 학원 검색. 월 12~15만 원 비용 확인. "정답 그림 강요" 후기 발견으로 창의성 우려 발생</div><div class="asis-emotion neg">😰 걱정·비용 부담</div></div>
+        <div class="asis-step"><div class="asis-num">STEP 03</div><div class="asis-title">대안 검색<br>및 시도</div><div class="asis-body">유튜브 미술 영상·만들기 키트·컬러링 앱 시도. 준비 노동 과부하, 아이 집중도 낮음</div><div class="asis-emotion warn">😤 피로·시간 부족</div></div>
+        <div class="asis-step"><div class="asis-num">STEP 04</div><div class="asis-title">서비스<br>지속 시도</div><div class="asis-body">신규 앱·키트 반복 구매. 2~3주 차 콘텐츠 소진 → 아이 흥미 감소. 부모 참여 중단</div><div class="asis-emotion warn">😞 소진·허탈감</div></div>
+        <div class="asis-step"><div class="asis-num">STEP 05</div><div class="asis-title">포기<br>(현 상태 유지)</div><div class="asis-body">미해결 상태로 잠정 포기. 가끔 맘카페에서 좋은 서비스 계속 탐색 중</div><div class="asis-emotion neg">😔 체념</div></div>
+      </div>
+      <h3 style="font-size:20px;font-weight:800;color:#e74c3c;margin:24px 0 16px;flex-shrink:0">🚨 핵심 이탈 포인트</h3>
+      <div class="exit-points" style="flex-shrink:0">
+        <div class="exit-card"><div class="exit-badge">🚨 이탈 포인트 01</div><div class="exit-title">스크린타임 죄책감</div><div class="exit-body">교육 목적이라도 태블릿 시간이 길어지면 "나쁜 엄마"가 되는 기분. 즉각 이탈 트리거 작용</div></div>
+        <div class="exit-card"><div class="exit-badge">🚨 이탈 포인트 02</div><div class="exit-title">준비 노동 과부하</div><div class="exit-body">재료 준비·뒷정리 시간이 실제 활동 시간보다 길어질 때 지속 불가. DIY 키트 방치로 이어짐</div></div>
+        <div class="exit-card"><div class="exit-badge">🚨 이탈 포인트 03</div><div class="exit-title">피드백·성취감 부재</div><div class="exit-body">유튜브·앱에서 그림을 그려도 아무런 반응이 없음 → 아이가 다음 활동 동기를 잃음</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 11: PAIN POINTS -->
+<section id="s11" data-screen-label="11 Pain Points">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-u">03 · 사용자 이해</span>
+      <h2 class="slide-main-title" style="color:#4a1fb5">핵심 Pain Points 우선순위 매트릭스</h2>
+      <p class="slide-desc">빈도 × 강도 = 우선순위 점수. 점수가 높을수록 명화랑이 반드시 해결해야 하는 핵심 문제.</p>
+    </div>
+    <div class="slide-content">
+      <table class="pain-table">
+        <thead><tr><th style="text-align:left">Pain Point</th><th>빈도 (1~5)</th><th>강도 (1~5)</th><th>점수</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pain-rank pr-r">1</span><span class="pain-name">스크린타임 죄책감</span><div class="pain-desc" style="padding-left:37px">교육 목적이라도 태블릿 사용에 만성적 죄책감. 두 세그먼트 공통 최대 페인포인트.</div></td><td><span class="pscore pscore-h">5</span></td><td><span class="pscore pscore-h">4</span></td><td><span class="pscore pscore-h">20</span></td></tr>
+          <tr><td><span class="pain-rank pr-r">2</span><span class="pain-name">창의성 상실 공포</span><div class="pain-desc" style="padding-left:37px">미술학원 획일 지도로 "나 못 그려" 발언. 전업주부 세그먼트 핵심 공포.</div></td><td><span class="pscore pscore-h">4</span></td><td><span class="pscore pscore-h">5</span></td><td><span class="pscore pscore-h">20</span></td></tr>
+          <tr><td><span class="pain-rank pr-a">3</span><span class="pain-name">워킹맘 구조적 참여 장벽</span><div class="pain-desc" style="padding-left:37px">학원 픽업 시간대가 퇴근 후와 불일치. 퇴근 후 에너지 부재.</div></td><td><span class="pscore pscore-m">4</span></td><td><span class="pscore pscore-m">4</span></td><td><span class="pscore pscore-m">16</span></td></tr>
+          <tr><td><span class="pain-rank pr-p">4</span><span class="pain-name">성취감·성장 기록 부재</span><div class="pain-desc" style="padding-left:37px">아이 그림이 냉장고에 붙었다 사라지는 허탈감. 디지털 활동도 결과물 미잔존.</div></td><td><span class="pscore pscore-l">3</span></td><td><span class="pscore pscore-l">4</span></td><td><span class="pscore pscore-l">12</span></td></tr>
+          <tr><td><span class="pain-rank pr-p">5</span><span class="pain-name">예술 감상 콘텐츠 부재</span><div class="pain-desc" style="padding-left:37px">기존 서비스가 스킬 훈련 위주. 명화 감상 콘텐츠 부재.</div></td><td><span class="pscore pscore-l">3</span></td><td><span class="pscore pscore-l">3</span></td><td><span class="pscore pscore-l">9</span></td></tr>
+        </tbody>
+      </table>
+      <div class="pain-insight">
+        <div class="pain-insight-icon">⚠️</div>
+        <div class="pain-insight-text">사용자 이탈은 대부분 <strong>2~3주 차</strong>에 집중되며, 콘텐츠 신기함 소진과 부모 참여 중단이 동시에 발생한다. 부모의 <strong>최소 행동(사진 촬영 1회)</strong>으로 아이에게 <strong>최대 보상(마법 애니메이션 + 구체적 칭찬 음성)</strong>을 트리거하는 구조가 리텐션의 핵심이다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 12: HMW -->
+<section id="s12" data-screen-label="12 HMW">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-s">04 · 문제 정의</span>
+      <h2 class="slide-main-title" style="color:#c07800">최우선 HMW & 타겟 연령 결정</h2>
+    </div>
+    <div class="slide-content">
+      <div class="hmw-box" style="flex-shrink:0">
+        <div class="hmw-star">★ 최우선 선정</div>
+        <div class="hmw-q">"우리는 어떻게 5~7세 아이를 둔 부모가 디지털 기기를 활용한 예술 활동을 '나쁜 육아'가 아닌 교육적 투자로 자연스럽게 받아들이도록, 아날로그와 디지털의 경계에서 발생하는 스크린타임 죄책감을 구조적으로 해소할 수 있을까?"</div>
+        <div class="hmw-reason"><strong>선정 근거:</strong> Pain Point 매트릭스 20점 최고점. 명화랑의 종이 워크북 + 앱 하이브리드 구조는 마케팅 메시지가 아닌 서비스 구조 자체로 이 문제를 해소하는 유일한 접근법.</div>
+      </div>
+      <h3 style="font-size:20px;font-weight:800;color:#F5A623;margin:20px 0 14px;flex-shrink:0">타겟 연령 결정 여정 — 왜 5~7세인가?</h3>
+      <div class="age-journey" style="flex-shrink:0">
+        <div class="age-step"><div class="age-step-num">Step 1 · 초기 검토</div><div class="age-step-title">5~10세 전체를 후보로 검토</div><div class="age-step-body">시장 규모 극대화를 위해 미취학~초등 저학년 전체를 검토. 그러나 연령대별 콘텐츠·UX가 충돌하는 문제 반복.</div></div>
+        <div class="age-step"><div class="age-step-num">Step 2 · 핵심 발견</div><div class="age-step-title">연령별 "비교 경험" 반응이 다르다</div><div class="age-step-body">5~7세는 마법적 사고 활성기로 명화 비교가 성취감. 초등학생은 완성도 강박으로 같은 경험이 스트레스로 전환됨.</div></div>
+        <div class="age-step"><div class="age-step-num">Step 3 · 최종 결정</div><div class="age-step-title">5~7세 단일 집중으로 완전한 최적화</div><div class="age-step-body">혼합 타겟은 초등생에겐 유치하고, 유치원생에겐 어려운 어중간한 서비스를 낳는다. 5~7세 집중으로 발달 단계·UX·콘텐츠 수준을 완벽하게 정렬.</div></div>
+      </div>
+      <div style="background:#F5A623;color:#fff;border-radius:14px;padding:20px 26px;margin-top:16px;text-align:center;flex-shrink:0">
+        <strong style="font-size:19px">🎯 타겟 연령 확정: 5세~7세 (유치원생)</strong>
+        <span style="font-size:15px;opacity:.9;margin-left:12px">— 이 결정이 이후 모든 UX 설계 선택의 기준점이 된다.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 13: 페르소나 -->
+<section id="s13" data-screen-label="13 Persona">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-s">04 · 문제 정의</span>
+      <h2 class="slide-main-title" style="color:#c07800">페르소나 (Persona)</h2>
+      <p class="slide-desc">결제 고객(부모) 2인 + 서비스 이용자(아동) 1인 — 결제자와 이용자의 분리 설계</p>
+    </div>
+    <div class="slide-content">
+      <div class="persona-grid" style="flex:1">
+        <div class="p-card p-primary">
+          <div class="p-role">Primary Persona · 결제 고객</div>
+          <div class="p-avatar">👩</div>
+          <div class="p-name">박지수</div>
+          <div class="p-info">34세 · 전업주부 (前 교사) · 경기 용인 · 딸 하연 6세</div>
+          <div class="p-tags"><span class="p-tag">교육 철학 중시</span><span class="p-tag">맘카페 활동</span><span class="p-tag">창의성 보호</span></div>
+          <div class="p-section">📱 태블릿 사용 태도</div>
+          <div class="p-content">교사 출신으로 교육적 근거가 있는 디지털 도구는 받아들이려 하지만 <strong>하루 1시간 철칙</strong>. 스크린타임 죄책감 강함.</div>
+          <div class="p-section">😰 핵심 공포</div>
+          <div class="p-content">창의성 상실 공포 / 교육 철학적 정당성 결여에 대한 불안</div>
+          <div class="p-quote">"종이에 직접 그리는 거잖아요. 앱은 그냥 사진 찍어서 보여주는 거고. 이게 그냥 앱이랑은 다른 것 같아서 마음이 편해요."</div>
+        </div>
+        <div class="p-card p-secondary">
+          <div class="p-role">Secondary Persona · 결제 고객</div>
+          <div class="p-avatar">👩‍💼</div>
+          <div class="p-name">이수진</div>
+          <div class="p-info">37세 · 마케팅 팀장 · 서울 마포 · 아들 준호 5세</div>
+          <div class="p-tags"><span class="p-tag">최소 개입 선호</span><span class="p-tag">IT 친숙</span><span class="p-tag">죄책감 해소 필요</span></div>
+          <div class="p-section">📱 태블릿 사용 태도</div>
+          <div class="p-content">IT 업계 종사로 <strong>디지털 거부감 없음</strong>. 단, 아이가 혼자 태블릿만 보면 불안. 아이 혼자 진행하고 부모는 결과만 확인하는 구조 선호.</div>
+          <div class="p-section">😰 핵심 공포</div>
+          <div class="p-content">나쁜 엄마 낙인 / 아이와의 연결감 부재 / 구독 서비스 콘텐츠 소진</div>
+          <div class="p-quote">"준호가 혼자 뚝딱 그리고 제가 퇴근하면 '엄마 이것 봐봐' 하고 보여주잖아요. 그럼 같이 앱으로 찍어보면서 이야기 나누는 게 오늘의 우리 시간이 되는 거예요."</div>
+        </div>
+        <div class="p-card p-child">
+          <div class="p-role">Tertiary Persona · 서비스 이용자</div>
+          <div class="p-avatar">🧒</div>
+          <div class="p-name">최하연</div>
+          <div class="p-info">6세 · 박지수의 딸 · 유치원생</div>
+          <div class="p-tags"><span class="p-tag">마법적 사고</span><span class="p-tag">즉각 보상 반응</span><span class="p-tag">수집욕</span></div>
+          <div class="p-section">🧠 발달 특성</div>
+          <div class="p-content">마법적 사고 활성기 / 집중 시간 15~20분 / "내가 최고"가 되고 싶은 자기중심적 욕구 / 규칙보다 이야기에 반응</div>
+          <div class="p-section">✨ 흥미 유발 포인트</div>
+          <div class="p-content">캐릭터 도슨트의 말 걸기 / 마법 애니메이션 / 갤러리 수집 / 구체적 즉각 칭찬 / 매 회 다른 화가 미션</div>
+          <div class="p-quote">"엄마, 나 고흐 아저씨 친구야. 아저씨가 나보고 잘 그렸다고 했어."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 14: 심리학 + 가치제안 -->
+<section id="s14" data-screen-label="14 Psychology">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-s">04 · 문제 정의</span>
+      <h2 class="slide-main-title" style="color:#c07800">심리학적 근거 & 가치 제안</h2>
+    </div>
+    <div class="slide-content">
+      <div class="psych-row" style="flex-shrink:0">
+        <div class="psych-card"><div class="psych-icon">🏔️</div><h3>피크엔드 법칙</h3><p>드로잉 과정이 힘들어도, 마지막에 화려한 효과와 원작 비교라는 <strong>절정 경험</strong>을 주면 아이는 전체 과정을 '재미있었다'고 기억한다.</p><div class="psych-src">Peak-End Rule — 다니엘 카너먼</div></div>
+        <div class="psych-card"><div class="psych-icon">🎰</div><h3>가변적 보상</h3><p>그림을 완성할 때마다 <strong>매번 다른 칭찬 멘트·스티커</strong>를 제공. 고정 보상보다 가변적 보상이 행동 지속성을 훨씬 높인다.</p><div class="psych-src">Variable Reward — B.F. 스키너</div></div>
+        <div class="psych-card"><div class="psych-icon">🎮</div><h3>게이미피케이션</h3><p>미션 수행, <strong>배지·컬렉션</strong> 수집 등 게임 요소를 교육에 접목. 단순 반복이 아닌 목표 지향적 활동으로 자발적 참여 유도.</p><div class="psych-src">Gamification — 자기결정 이론</div></div>
+      </div>
+      <div class="vp-row" style="flex:1;margin-top:22px">
+        <div class="vpc vpc-child"><span class="vpc-who">🧒 아동 관점</span><div class="vpc-stmt">"내가 그린 그림이<br>명화가 되는 마법같은 성취감"</div><div class="vpc-sub">원작과 나란히 놓인 내 그림. 틀렸다가 아닌, 나도 화가처럼 색을 썼다는 순수한 기쁨. 5~7세 아이에게 이 비교는 열등감이 아닌 마법이다.</div></div>
+        <div class="vpc vpc-parent"><span class="vpc-who">👩 부모 관점</span><div class="vpc-stmt">"죄책감 없는 스크린타임과<br>우리 아이만의 디지털 미술관"</div><div class="vpc-sub">종이에 그리고 사진만 찍는다. 태블릿은 보조 도구일 뿐. 나쁜 엄마가 아닌, 아이에게 최고의 교육적 환경을 제공하는 부모가 된다.</div></div>
+        <div class="vpc vpc-learn"><span class="vpc-who">📚 학습 관점</span><div class="vpc-stmt">"국내 최초 한국어 기반<br>아동 맞춤형 예술 리터러시 입문"</div><div class="vpc-sub">명화를 즐길 줄 아는 아이. 미술관이 두렵지 않은 아이. 글로벌 앱이 제공하지 못한 모국어 기반 예술 감수성을 5세부터 자연스럽게 쌓는다.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 15: SITEMAP -->
+<section id="s15" data-screen-label="15 Sitemap">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-st">05 · 정보구조설계</span>
+      <h2 class="slide-main-title" style="color:#1a5c3a">IA 구조도 — Sitemap</h2>
+      <p class="slide-desc">부모 앱(Parents Zone) + 아동 앱(Kids Zone) + 어드민 3-zone 구조</p>
+    </div>
+    <div class="slide-content">
+      <div style="text-align:center;flex-shrink:0;margin-bottom:20px">
+        <div class="sitemap-root">명화랑 (Myeonghwarang)</div>
+      </div>
+      <div class="sitemap-zones" style="flex:1">
+        <div class="sm-zone">
+          <div class="sm-zone-title">👩 부모 앱 (Parents Zone)</div>
+          <div class="sm-section"><div class="sm-item">A-1 홈 (대시보드)</div><div class="sm-sub"><div class="sm-item">A-1-1 오늘 미션 현황 + 촬영 버튼</div><div class="sm-item">A-1-2 최근 작품 미리보기</div></div></div>
+          <div class="sm-section"><div class="sm-item">A-2 우리 아이 갤러리</div><div class="sm-sub"><div class="sm-item">A-2-1 작품 상세 (원작 비교 + AI 감상평)</div><div class="sm-item">A-2-2 공유하기 (SNS / 인쇄 PDF)</div></div></div>
+          <div class="sm-section"><div class="sm-item">A-3 성장 리포트</div><div class="sm-sub"><div class="sm-item">A-3-1 월간 요약 (발달 지표)</div><div class="sm-item">A-3-2 명화 여정 지도 (타임라인)</div></div></div>
+          <div class="sm-section"><div class="sm-item">A-4 워크북 연동 (QR 등록)</div><div class="sm-item">A-5 구독/결제 · A-6 설정</div></div>
+        </div>
+        <div class="sm-zone">
+          <div class="sm-zone-title">🧒 아동 앱 (Kids Zone)</div>
+          <div class="sm-section"><div class="sm-item">B-1 오늘의 미션 (홈)</div><div class="sm-sub"><div class="sm-item">B-1-1 명화 스토리 (60초 애니메이션)</div><div class="sm-item">B-1-2 미션 브리핑</div></div></div>
+          <div class="sm-section"><div class="sm-item">B-2 그리기 시작</div><div class="sm-sub"><div class="sm-item">B-2-1 워크북 페이지 안내</div><div class="sm-item">B-2-2 그리는 중 화면 (타이머+음악)</div></div></div>
+          <div class="sm-section"><div class="sm-item">B-3 마법 촬영 ⭐ 부모 개입 포인트</div><div class="sm-sub"><div class="sm-item">B-3-1 촬영 가이드 (가이드 프레임)</div><div class="sm-item">B-3-2 마법 변환 로딩 (스파클)</div></div></div>
+          <div class="sm-section"><div class="sm-item">B-4 마법 결과 (AI 비교 + 칭찬)</div><div class="sm-item">B-5 나만의 갤러리 (배지·스티커판)</div></div>
+        </div>
+        <div class="sm-zone">
+          <div class="sm-zone-title">⚙️ 어드민 (Admin)</div>
+          <div class="sm-section"><div class="sm-item">C-1 콘텐츠 관리</div><div class="sm-sub"><div class="sm-item">C-1-1 명화 미션 등록·편집</div><div class="sm-item">C-1-2 AI 칭찬 멘트 관리</div></div></div>
+          <div class="sm-section"><div class="sm-item">C-2 워크북 관리</div><div class="sm-sub"><div class="sm-item">C-2-1 QR 코드 발급·매핑</div><div class="sm-item">C-2-2 재고·배송 현황</div></div></div>
+          <div class="sm-section"><div class="sm-item">C-3 구독·결제 관리</div><div class="sm-item">C-4 분석 대시보드</div><div class="sm-sub"><div class="sm-item">C-4-1 DAU/MAU · 이탈률</div><div class="sm-item">C-4-2 미션 완주율 분석</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 16: 핵심 루프 + User Flow -->
+<section id="s16" data-screen-label="16 Core Loop">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-st">05 · 정보구조설계</span>
+      <h2 class="slide-main-title" style="color:#1a5c3a">핵심 4단계 루프 & User Flow</h2>
+      <p class="slide-desc">명화랑의 핵심 서비스 루프 + Primary Persona 박지수 기준 온보딩·촬영 플로우</p>
+    </div>
+    <div class="slide-content">
+      <div class="loop-grid" style="flex-shrink:0">
+        <div class="loop-item"><div class="loop-icon">📖</div><div class="loop-tag lt1">Step 1</div><div class="loop-title">워크북 그리기</div><div class="loop-body">아이 혼자 15~20분<br><strong style="color:#27AE60">스크린 0분</strong><br>아날로그 주 활동</div></div>
+        <div class="loop-item loop-lt2"><div class="loop-icon">📸</div><div class="loop-tag lt2">Step 2</div><div class="loop-title" style="color:#1a3a5c">부모 촬영</div><div class="loop-body"><strong style="color:#4A90D9">60초·3탭</strong><br>최소 개입 설계<br>부모 참여 완결</div></div>
+        <div class="loop-item loop-lt3"><div class="loop-icon">✨</div><div class="loop-tag lt3">Step 3</div><div class="loop-title" style="color:#7a4f00">마법 애니메이션</div><div class="loop-body">스파클 + 칭찬 음성<br>피크엔드 법칙 적용<br>부모-아이 공동 감상</div></div>
+        <div class="loop-item loop-lt4"><div class="loop-icon">🖼️</div><div class="loop-tag lt4">Step 4</div><div class="loop-title" style="color:#4a2db5">갤러리 적재</div><div class="loop-body">자동 저장<br>뱃지+스티커 보상<br>다음 미션 예고</div></div>
+      </div>
+      <div class="uf-summary" style="flex:1;margin-top:20px">
+        <div class="uf-title">User Flow 요약 — Happy Path + Error Path</div>
+        <div class="uf-tasks">
+          <div class="uf-task uf-t1">
+            <div class="uf-task-title">Task 1 · 서비스 온보딩</div>
+            <div class="uf-task-steps">🚀 앱 다운로드 → 스플래시(2초) → 온보딩 슬라이드 3장 → 로그인 (카카오/애플/이메일) → 아이 프로필 등록 → 워크북 QR 스캔 → 구독 플랜 선택 → 아동 모드 설정 → 🏠 홈 화면 진입</div>
+            <div class="uf-task-meta">목표: 3분 이내 완료 · 12단계 · 로그인/QR 오류 분기 포함</div>
+          </div>
+          <div class="uf-task uf-t2">
+            <div class="uf-task-title">Task 2 · 그림 촬영 및 AI 비교 감상</div>
+            <div class="uf-task-steps">🧒 아동: 명화 스토리 60초 → 미션 브리핑 → 워크북 그리기 → 완성 알림 → 👩 부모 핸드오프 → 촬영 가이드 → 마법 변환 로딩 → AI 비교 결과 + 칭찬 → 갤러리 저장 → 배지 획득 → 🔄 다음 미션 예고</div>
+            <div class="uf-task-meta">목표: 2분 이내 · 13단계 · 아동↔부모 핸드오프 포함</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 17: User Flow Chart -->
+<section id="s17" data-screen-label="17 User Flow Chart">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <span class="stag stag-st">05 · 정보구조설계</span>
+      <h2 class="slide-main-title" style="color:#1a5c3a">User Flow Chart — 화면 단위 플로우 다이어그램</h2>
+      <p class="slide-desc">Task 1 온보딩(12단계) · Task 2 촬영·감상 루프(13단계) · 아동↔부모 핸드오프 포함</p>
+    </div>
+    <div class="slide-content">
+      <div class="uflow-wrap">
+
+        <!-- Task 1 : Onboarding -->
+        <div class="uflow-lane">
+          <div class="uflow-head">
+            <span class="uflow-badge b1">Task 1</span>
+            <span class="uflow-title">서비스 온보딩 플로우 · Primary Persona 박지수(32세) 기준</span>
+            <span class="uflow-meta">목표 3분 이내 · 12단계 · 오류 분기 2개</span>
+          </div>
+          <div class="uflow-chart">
+            <div class="ufn start"><div class="ufn-ic">🚀</div><div class="ufn-t">앱 실행</div><div class="ufn-s">스플래시 2초</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn"><div class="ufn-ic">📖</div><div class="ufn-t">온보딩 3장</div><div class="ufn-s">서비스 소개</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn parent"><div class="ufn-ic">🔐</div><div class="ufn-t">소셜 로그인</div><div class="ufn-s">카카오/애플</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn decision"><div class="ufn-ic">⚠️</div><div class="ufn-t">로그인 성공?</div></div>
+            <div class="uflow-branch"><span class="uf-branch-lbl yes">YES ▶</span><span class="uf-branch-lbl no">NO ↻</span></div>
+            <div class="ufn parent"><div class="ufn-ic">👶</div><div class="ufn-t">아이 프로필</div><div class="ufn-s">이름·연령·성별</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn parent"><div class="ufn-ic">📷</div><div class="ufn-t">워크북 QR</div><div class="ufn-s">카메라 스캔</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn decision"><div class="ufn-ic">⚠️</div><div class="ufn-t">QR 유효?</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn parent"><div class="ufn-ic">💳</div><div class="ufn-t">구독 플랜</div><div class="ufn-s">월/연 선택</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn"><div class="ufn-ic">🔒</div><div class="ufn-t">아동 모드</div><div class="ufn-s">인앱결제 차단</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn end"><div class="ufn-ic">🏠</div><div class="ufn-t">홈 진입</div><div class="ufn-s">온보딩 완료</div></div>
+          </div>
+        </div>
+
+        <!-- Task 2 : Drawing & AI Magic Loop -->
+        <div class="uflow-lane">
+          <div class="uflow-head">
+            <span class="uflow-badge b2">Task 2</span>
+            <span class="uflow-title">그림 촬영 및 AI 비교 감상 루프 · 아동↔부모 핸드오프</span>
+            <span class="uflow-meta">목표 2분 이내 · 13단계 · 피크엔드 법칙 적용</span>
+          </div>
+          <div class="uflow-chart">
+            <div class="ufn start"><div class="ufn-ic">🏠</div><div class="ufn-t">홈 화면</div><div class="ufn-s">미션 선택</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn child"><div class="ufn-ic">🎬</div><div class="ufn-t">명화 스토리</div><div class="ufn-s">60초 영상</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn child"><div class="ufn-ic">🎯</div><div class="ufn-t">미션 브리핑</div><div class="ufn-s">오늘의 포인트</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn child"><div class="ufn-ic">✏️</div><div class="ufn-t">워크북</div><div class="ufn-s">15~20분·오프라인</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn"><div class="ufn-ic">🔔</div><div class="ufn-t">완성 알림</div><div class="ufn-s">부모 호출</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn parent"><div class="ufn-ic">🤝</div><div class="ufn-t">핸드오프</div><div class="ufn-s">부모 전환</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn parent"><div class="ufn-ic">📸</div><div class="ufn-t">촬영 가이드</div><div class="ufn-s">3탭·60초</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn magic"><div class="ufn-ic">✨</div><div class="ufn-t">마법 변환</div><div class="ufn-s">AI 로딩 5초</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn magic"><div class="ufn-ic">🖼️</div><div class="ufn-t">AI 비교</div><div class="ufn-s">칭찬 음성</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn"><div class="ufn-ic">💾</div><div class="ufn-t">갤러리 저장</div><div class="ufn-s">자동 적재</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn"><div class="ufn-ic">🏅</div><div class="ufn-t">배지 획득</div><div class="ufn-s">보상 피드백</div></div>
+            <div class="uf-arrow">▶</div>
+            <div class="ufn end"><div class="ufn-ic">🔄</div><div class="ufn-t">다음 미션</div><div class="ufn-s">예고·재진입</div></div>
+          </div>
+        </div>
+
+        <div class="uflow-legend">
+          <span><i class="lg-s"></i>시작/완료</span>
+          <span><i class="lg-e"></i>종료/진입</span>
+          <span><i class="lg-c"></i>아동 화면</span>
+          <span><i class="lg-p"></i>부모 화면</span>
+          <span><i class="lg-m"></i>AI·마법 연출</span>
+          <span><i class="lg-d"></i>분기·오류</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
